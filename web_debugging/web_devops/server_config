@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+#script that configures an Nginx server listening on port 80
+
+#Define variables for file paths
+NGINX_SITES_AVAILABLE="/etc/nginx/sites-available"
+NGINX_SITES_ENABLED="/etc/nginx/sites-enabled"
+NGINX_DEFAULT_CONFIG="default"
+
+
+#check if Nginx is installed: if not install Nginx 
+if ! command -v nginx &> /dev/null; then
+	echo "Nginx is not installed."
+	echo "Ïnstalling Nginx.. Pleas Wait!!"
+
+	# update pacakge manager and install Nginx
+	if command -v apt-get &> /dev/null; then
+		sudo apt-get update
+		sudo apt-get install -y nginx
+	elif command -v brew &> /dev/null; then
+		brew update
+		brew install nginx
+	else
+		echo "Ünsuppported package manager. Please Install Nginx Manually"
+		exit 1
+	fi
+	
+	echo "Nginx installed Sucessfully.."
+	exit 1
+fi
+
+#start nginx service using
+brew services start nginx
+
+# Check if the default config file exists
+if [ ! -e "$NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG" ]; then
+	echo ""Defaulte config file not found at $NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG"
+	exit 1
+fi
+
+# Check if symbolic link already exists
+if [ ! -e "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG" ]; then
+	echo ""Symbolic link '$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG' already exists. Skipping link creation."
+else
+	# Remove the default symbolic link if it exists
+	if [ -e "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG" ]; then
+		brew rm "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG"
+		echo "Default symlink removed succesfully"
+	
+	fi
+
+	# Create a symbolic link to the default config
+	brew ln -s "$NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG" "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG"
+
+	# Check if the link creation was successful
+	if [ $? -eq 0 ]; then
+		echo "Symbolic link created successfully.."
+	else
+		echo ""Failed to create symbolic link. Exiting..."
+		exit 1
+	fi
+fi
+
+# Restart Nginx and capture the output
+nginx_restart_output=$(brew services restart nginx 2>&1)
+
+# Check if Nginx restart was successful
+if [ $? -eq 0 ]; then
+	echo ""Nginx restarted succesfully.."
+else
+	echo "Failed to restart Nginx"
+	echo "Nginx restart Output: "
+	echo "$nginx_restart_output"
+fi
+
+echo "Nginx configuration completed!!"

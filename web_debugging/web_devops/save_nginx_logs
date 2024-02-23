@@ -1,0 +1,37 @@
+#!/bin/bash
+# a script that saves the error log and access log of each nginx process
+
+#define paths
+NGINX_ERROR_LOG="/var/log/nginx/error.log"
+NGINX_ACCESS_LOG="/var/log/nginx/access.log"
+LOGS_DIR="/Users/mac/Desktop/n-dev/all_things_dev/playpen/web_debugging/web_devops/Logs_dir"
+
+#Generate timestamp
+TIMESTAMP=$(date "+%Y%D%H%M%S")
+
+# define log file path
+
+LOG_FILE="$LOGS_DIR/nginx_error_log_$TIMESTAMP.txt"
+
+# Check if the nginx error log exists
+if [ -f "$NGINX_ERROR_LOG" ]; then
+	# copy error log to the timestamped file
+	cp "$NGINX_ERROR_LOG" "$LOG_FILE"
+
+	echo "Nginx error log saved to: $LOG_FILE"
+else
+    echo "Error: Nginx error log not found at $NGINX_ERROR_LOG"
+fi
+
+# Check if the nginx access log exists
+if [ -f "$NGINX_ACCESS_LOG" ]; then
+	# copy access_log to the timestamped file
+	cp "$NGINX_ACCESS_LOG" "$LOG_FILE"
+
+	echo "Nginx access log saved to: $LOG_FILE"
+else
+	"Error: Nginx access log not found at $NGINX_ACCESS_LOG"
+
+fi
+
+echo "Log Documentation Done.."

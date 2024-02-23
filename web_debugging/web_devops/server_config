@@ -49,15 +49,15 @@ else
 	fi
 
 	# Create a symbolic link to the default config
-	ln -s "$NGINX_CONF_DIR/$NGINX_DEFAULT_CONFIG" "$NGINX_CONF_DIR/sites-enabled/$NGINX_DEFAULT_CONFIG"
+	#ln -s "$NGINX_CONF_DIR/$NGINX_DEFAULT_CONFIG" "$NGINX_CONF_DIR/sites-enabled/$NGINX_DEFAULT_CONFIG"
 
 	# Check if the link creation was successful
-	if [ $? -eq 0 ]; then
-		echo "Symbolic link created successfully.."
-	else
-		echo "Failed to create symbolic link. Exiting..."
-		exit 1
-	fi
+	#if [ $? -eq 0 ]; then
+		#echo "Symbolic link created successfully.."
+	#else
+		#echo "Failed to create symbolic link. Exiting..."
+		#exit 1
+	#fi
 fi
 
 # Restart Nginx and capture the output

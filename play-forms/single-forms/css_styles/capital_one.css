@@ -1,0 +1,342 @@
+/* Responsive styles for even smaller screens */
+@media only screen and (max-width: 480px) {
+
+    /* Adjustments for even smaller screens go here */
+    .text {
+        font-size: 1.8rem;
+    }
+
+    .light_circle {
+        width: 400px;
+        height: 400px;
+        left: 20em;
+    }
+
+    .forms {
+        width: 90%;
+        min-width: 90%;
+        margin-top: -3em;
+    }
+
+    .dob-wrap {
+        flex-direction: column;
+    }
+
+    .dob {
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
+}
+
+/* Reset and default styles */
+html,
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+    --main_bg_color: rgb(28, 38, 64);
+    --primary_text_color: rgb(73, 73, 73);
+    --secondary_text_color: whitesmoke;
+    --primary_btn_color: rgb(0, 195, 179);
+    --secondary_btn_color: orangered;
+}
+
+body {
+    background-color: var(--main_bg_color);
+    color: var(--primary_text_color);
+    margin: 0;
+}
+
+/* Section styles */
+section {
+    margin: 0 20px;
+}
+
+/* Header section styles */
+.header-section {
+    margin-top: 10px;
+    padding-left: 5px;
+    color: var(--secondary_text_color);
+}
+
+.sub_title {
+    font-size: 21px;
+    font-weight: 500;
+}
+
+/* Body container styles */
+.body-container {
+    width: 100%;
+    height: 800px;
+}
+
+/* Top section styles */
+.top-section {
+    width: 100%;
+    height: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Inner section styles */
+.inner_section {
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    padding: 20px;
+    top: 40px;
+    overflow: hidden;
+}
+
+/* Text styles */
+.text {
+    max-width: 100%;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 25px 20px 15px;
+    font-size: 2.8rem;
+    line-height: 1;
+    text-align: center;
+    font-weight: 900;
+}
+
+.text>h2 {
+    color: var(--primary_btn_color);
+    font-family: "Barlow Condensed", "HelveticaNeue-CondensedBold", "Arial Narrow", "Helvetica";
+    z-index: 1;
+    padding-right: 25px;
+    padding-top: 10px;
+}
+
+.coloured-text {
+    color: var(--secondary_text_color);
+}
+
+.card_image {
+    margin: 20px;
+    width: 100px;
+    height: 75px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: beige;
+}
+
+.text-links {
+    margin: 15px;
+    padding: 20px;
+    color: var(--secondary_text_color);
+    position: absolute;
+    top: 23rem;
+    left: 35%;
+    font-size: 18px;
+    font-weight: 700;
+
+}
+
+.text-links > ul {
+    text-decoration: none;
+    list-style: none;
+    padding-top: 15px;
+}
+
+.text-links > ul > li {
+    padding-top: 15px;
+}
+
+.text-links>ul>li:hover {
+    color: var(--secondary_btn_color);
+}
+
+/* Light circle styles */
+.light_circle {
+    background-color: var(--primary_btn_color);
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    top: -8em;
+    left: 60em;
+    z-index: 0;
+}
+
+/* Form container styles */
+.form-container {
+    width: 100%;
+    height: 650px;
+    background-color: var(--secondary_text_color);
+    z-index: 1;
+    position: relative;
+}
+
+/* Forms styles */
+.forms {
+    width: 45%;
+    min-width: 45%;
+    height: 90%;
+    border: 1px solid var(--primary_text_color);
+    box-shadow: 0.4px 1px 1px 1px var(--primary_text_color);
+    margin: 0 auto;
+    position: relative;
+    top: -7em;
+    z-index: 4;
+    background-color: var(--secondary_text_color);
+    padding: 0 20px;
+}
+
+.forms_header {
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    color: rgb(28, 38, 64);
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    flex-direction: column;
+    color: black;
+}
+
+/* Title wrap styles */
+.title-wrap {
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.title-label,
+.lnames,
+.dob1 {
+    margin: 20px 10px;
+}
+
+.title-button {
+    margin-right: 5px;
+    width: 55px;
+    height: 30px;
+    font-size: 16px;
+}
+
+/* Names styles */
+.names {
+    width: 150px;
+    padding-left: 20px;
+}
+
+/* Name wrap and date of birth wrap styles */
+.name-wrap,
+.dob-wrap {
+    margin: 10px 0 20px 0;
+    width: 100%;
+}
+
+/* Date of birth label styles */
+.dob1 {
+    font-size: 16px;
+}
+
+/* Textbox styles */
+input[type="text"] {
+    margin: 8px;
+    padding: 10px;
+    border: 1px solid var(--primary_text_color);
+    border-radius: 5px;
+    box-shadow: 2px 3px var(--secondary_btn_color);
+}
+
+/* Button styles */
+input[type="button"] {
+    margin: 5px;
+    text-align: center;
+}
+
+/* Date of birth wrap styles */
+.dob-wrap {
+    width: 100%;
+}
+
+/* Date of birth textbox styles */
+.dob {
+    width: 20%;
+}
+
+/* Submit button styles */
+input[type="submit"] {
+    background-color: var(--primary_text_color);
+    color: var(--secondary_text_color);
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid var(--secondary_btn_color);
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 20px auto;
+    text-align: center;
+    width: 70%;
+}
+
+/* Button wrap styles */
+.btn-wrap {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Submit button hover styles */
+input[type="submit"]:hover {
+    background-color: var(--secondary_btn_color);
+    border: 1px solid var(--primary_btn_color);
+}
+
+/* Footer wrap styles */
+.footer-wrap {
+    width: 100%;
+    height: 250px;
+    background-color: var(--secondary_text_color);
+    position: absolute;
+    bottom: -50rem;
+    z-index: 3;
+    align-items: center;
+}
+
+/* Footer list styles */
+.footer-list {
+    margin: 20px auto;
+    text-align: center;
+    width: 100%;
+}
+
+/* Footer list ul styles */
+.footer-list>ul {
+    list-style: none;
+    display: flex;
+    margin-left: 20px;
+    padding-left: 30px;
+    text-align: center;
+}
+
+/* Footer list li styles */
+.footer-list>ul>li {
+    padding: 20px;
+    margin: 0 20px;
+}
+
+/* Footer styles */
+footer {
+    font-size: 16px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 20px;
+}

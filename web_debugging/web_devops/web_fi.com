@@ -1,0 +1,1 @@
+/opt/homebrew/etc/nginx/web_fi.com

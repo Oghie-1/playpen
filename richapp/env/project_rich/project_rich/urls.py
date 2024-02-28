@@ -20,5 +20,8 @@ from engine import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.hello_world),
-    path('exit/', views.come_back)
+    path('exit/', views.come_back),
+    path('index/',views.index, name='index'),
+    path('second/', views.second, name='second'),
+
 ]
